@@ -5,10 +5,11 @@ public class MyLinkedList<E> {
     {
         E element;
         Node next;
+        Node previous;
 
     }
-    private Node head;
-    private Node tail;
+    private Node<E> head;
+    private Node<E> tail;
     int size = 0;
 
     public void add(E element){
@@ -29,8 +30,11 @@ public class MyLinkedList<E> {
         }
     }
 
-    public void get(int index){
-
+    public E get(int index){
+        if ( index < 0 || index >= size)
+        {
+            throw new IndexOutOfBoundsException();
+        }
     }
 
     public int size(){
