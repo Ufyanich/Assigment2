@@ -52,4 +52,9 @@ public class MyArrayList{
     public int size(){
         return size;
     }
+
+    public void clear(){
+        this.arr = new Object[2];
+        this.size = 0;
+    }
 }
