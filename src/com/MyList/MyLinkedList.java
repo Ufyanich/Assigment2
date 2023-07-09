@@ -5,7 +5,6 @@ public class MyLinkedList<E> {
     {
         E element;
         Node next;
-        Node prev;
 
     }
     private Node head;
@@ -22,6 +21,10 @@ public class MyLinkedList<E> {
             head = MyList;
         } else {
             Node NewList = head;
+            while (NewList.next != null) //jump to last node
+            {
+                NewList = NewList.next;
+            }
         }
 
     }
