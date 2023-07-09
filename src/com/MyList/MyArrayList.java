@@ -48,4 +48,8 @@ public class MyArrayList{
         }
         size-- ;
     }
+
+    public int size(){
+        return size;
+    }
 }
