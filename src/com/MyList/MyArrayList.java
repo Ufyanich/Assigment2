@@ -5,7 +5,17 @@ public class MyArrayList{
     int size;
 
     MyArrayList(){
-        this.arr = new Object[size];
+        this.arr = new Object[2];
         this.size = 0;
     }
+
+    public void add(E element){
+        if(size == arr.length)
+        {
+            InBuff();
+        }
+
+        arr[size++] = element;
+    }
+
 }
