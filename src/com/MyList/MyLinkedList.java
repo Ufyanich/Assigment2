@@ -14,6 +14,15 @@ public class MyLinkedList<E> {
 
     public void add(E element){
         Node MyList = new Node();
+        MyList.element = element;
+        MyList.next = null;
+
+        if(head == null) //check for null
+        {
+            head = MyList;
+        } else {
+            Node NewList = head;
+        }
 
     }
 }
