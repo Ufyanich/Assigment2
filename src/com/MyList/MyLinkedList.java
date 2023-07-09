@@ -1,5 +1,12 @@
 package com.MyList;
 
 public class MyLinkedList {
-    private class Node(E element)
+    private static class Node<E>
+    {
+        E element;
+        Node next;
+        Node prev;
+
+    }
+
 }
