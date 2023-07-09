@@ -40,4 +40,12 @@ public class MyArrayList{
             throw new IndexOutOfBoundsException("No index");
         }
     }
+
+    public void remove(int index){
+        checkInd(index);
+        for(int i=index+1; i<size; i++){
+            arr[i-1]= arr[i];
+        }
+        size--;
+    }
 }
