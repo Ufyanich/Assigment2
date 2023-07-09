@@ -110,6 +110,10 @@ public class MyLinkedList<E>{
 
     public static void main(String[] args)
     {
+        MyLinkedList MyList = new MyLinkedList();
+
+        MyList.add(1);
+        MyList.add(2);
 
     }
 }
