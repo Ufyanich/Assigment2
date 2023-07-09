@@ -35,6 +35,38 @@ public class MyLinkedList<E> {
         {
             throw new IndexOutOfBoundsException();
         }
+
+        if(index == 0){
+            return head.element;
+        }
+
+        if (index == size - 1)
+        {
+            return tail.element;
+        }
+        if (index <= size /2)
+        {
+            Node<E> MyListT;
+            MyListT = head;
+
+            for (int i = 0; i < index; i++ )
+            {
+                MyListT = MyListT.next;
+            }
+
+            return MyListT.element;
+        } else {
+            Node<E> MyListT;
+            MyListT = tail;
+
+            for (int i = size-1; i > index; i--)
+            {
+                MyListT = MyListT.previous;
+            }
+            return MyListT.element;
+        }
+
+
     }
 
     public int size(){
