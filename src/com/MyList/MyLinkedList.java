@@ -8,8 +8,9 @@ public class MyLinkedList<E> {
         Node prev;
 
     }
-    private int head;
-    private int tail;
+    private Node head;
+    private Node tail;
+    int size = 0;
 
     public void add(E element){
         Node MyList = new Node();
