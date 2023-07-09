@@ -28,4 +28,9 @@ public class MyArrayList{
 
         arr = arrNew;
     }
+
+    public Object get(int index){
+        checkInd(index);
+        return arr[index];
+    }
 }
