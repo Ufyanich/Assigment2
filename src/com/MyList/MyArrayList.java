@@ -61,5 +61,19 @@ public class MyArrayList<E> implements List<E> {
         this.size = 0;
     }
 
-
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        MyArrayList Array = new MyArrayList();
+        Array.add("Test");
+        Array.add(6);
+        Array.add(8);
+        Array.add(11);
+        Array.add(15);
+        Array.add(scanner.nextInt());
+        System.out.println(Array.get(0));
+        System.out.println(Array.size());
+        System.out.println(Array.get(3));
+        Array.remove(3);
+        System.out.println(Array.get(3));
+    }
 }
