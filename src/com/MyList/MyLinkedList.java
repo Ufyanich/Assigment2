@@ -9,4 +9,6 @@ public class MyLinkedList {
 
     }
 
+    private int head;
+    private int
 }
