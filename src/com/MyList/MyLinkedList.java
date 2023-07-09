@@ -4,8 +4,8 @@ public class MyLinkedList<E>{
     private static class Node<E>
     {
         E element;
-        Node next;
-        Node previous;
+        Node<E> next;
+        Node<E> previous;
 
         public Node(E element){
             this.element = element;
@@ -79,11 +79,33 @@ public class MyLinkedList<E>{
 
     public E remove(int index)
     {
-        Node<E> TestRemove;
+        Node<E> TestRemove = null;
 
         if (index == 0){
-            TestRemove = head
+            TestRemove = head;
+            head = head.next;
+        } else if (index == size-1) {
+            TestRemove = tail;
+            tail = tail.previous;
+        } else {
+            TestRemove = getNode(index);
+            Node<E> prevNode = TestRemove.previous;
+            Node<E> nextNode = TestRemove.next;
+            prevNode.next = nextNode;
+            nextNode.previous = prevNode;
         }
+
+        size--;
+        return TestRemove.element;
+    }
+
+    private Node<E> getNode(int index){
+        Node<E> thisNode = head;
+        for (int i = 0; i < index; i++)
+        {
+            thisNode = thisNode.next;
+        }
+        return thisNode;
     }
 
     public static void main(String[] args)
