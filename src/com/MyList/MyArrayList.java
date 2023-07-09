@@ -3,7 +3,7 @@ package com.MyList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MyArrayList{
+public class MyArrayList<E>{
     private Object[] arr;
     int size;
 
@@ -64,17 +64,14 @@ public class MyArrayList{
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        MyArrayList Array = new MyArrayList();
-        MyArrayList.add(7);
-        MyArrayList.add(6);
-        MyArrayList.add(8);
-        MyArrayList.add(11);
-        MyArrayList.add(15);
-        MyArrayList.add(scan.nextInt());
-        System.out.println(MyArrayList.get(0));
-        System.out.println(MyArrayList.size());
-        System.out.println(MyArrayList.get(3));
-        MyArrayList.remove(3);
-        System.out.println(MyArrayList.get(3));
+        MyArrayList MyList = new MyArrayList();
+        MyList.add("7");
+        MyList.add(5);
+        MyList.add(scan.nextInt(1));
+        System.out.println(MyList.get(0));
+        System.out.println(MyList.size());
+        System.out.println(MyList.get(3));
+        MyList.remove(3);
+        System.out.println(MyList.get(3));
     }
 }
