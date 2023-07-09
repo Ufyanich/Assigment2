@@ -33,4 +33,11 @@ public class MyArrayList{
         checkInd(index);
         return arr[index];
     }
+
+    private void checkInd(int index) {
+        if (index < 0 || index>size)
+        {
+            throw new IndexOutOfBoundsException("No index");
+        }
+    }
 }
