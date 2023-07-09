@@ -21,7 +21,7 @@ public class MyLinkedList<E> {
             head = MyList;
         } else {
             Node NewList = head;
-            while (NewList.next != null) //jump to last node
+            while (NewList.next != null) // jump to last node
             {
                 NewList = NewList.next;
             }
