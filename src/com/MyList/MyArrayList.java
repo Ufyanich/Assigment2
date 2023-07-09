@@ -20,5 +20,12 @@ public class MyArrayList{
 
     private void InBuff(){
         Object[] arrNew = new Object[arr.length*2];
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            arrNew[i] = arr[i];
+        }
+
+        arr = arrNew;
     }
 }
