@@ -19,7 +19,7 @@ public class MyLinkedList<E>{
     int size = 0;
 
     public void add(E element){
-        Node<E> MyList = Node();
+        Node<E> MyList = null;
         MyList.element = element;
         MyList.next = null;
 
@@ -39,7 +39,7 @@ public class MyLinkedList<E>{
     public E get(int index){
         if ( index < 0 || index >= size)
         {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException(); //check for valid value
         }
 
         if(index == 0){
@@ -75,6 +75,15 @@ public class MyLinkedList<E>{
 
     public int size(){
         return size;
+    }
+
+    public E remove(int index)
+    {
+        Node<E> TestRemove;
+
+        if (index == 0){
+            TestRemove = head
+        }
     }
 
     public static void main(String[] args)
