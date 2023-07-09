@@ -1,6 +1,8 @@
 package com.MyList;
 
-public class MyArrayList{
+import java.util.*;
+
+public class MyArrayList<E> implements List<E> {
     private Object[] arr;
     int size;
 
@@ -34,12 +36,6 @@ public class MyArrayList{
         return arr[index];
     }
 
-    private void checkInd(int index) {
-        if (index < 0 || index>size)
-        {
-            throw new IndexOutOfBoundsException("No index");
-        }
-    }
 
     public void remove(int index){
         checkInd(index);
@@ -47,6 +43,13 @@ public class MyArrayList{
             arr[i-1]= arr[i];
         }
         size-- ;
+    }
+
+    private void checkInd(int index) {
+        if (index < 0 || index>size)
+        {
+            throw new IndexOutOfBoundsException("No index");
+        }
     }
 
     public int size(){
@@ -57,4 +60,6 @@ public class MyArrayList{
         this.arr = new Object[2];
         this.size = 0;
     }
+
+
 }
