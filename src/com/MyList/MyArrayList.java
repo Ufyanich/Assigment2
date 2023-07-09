@@ -1,6 +1,5 @@
 package com.MyList;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class MyArrayList<E>{

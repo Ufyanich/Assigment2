@@ -33,6 +33,10 @@ public class MyLinkedList<E> {
 
     }
 
+    public int size(){
+        return size;
+    }
+
     public static void main(String[] args)
     {
 
