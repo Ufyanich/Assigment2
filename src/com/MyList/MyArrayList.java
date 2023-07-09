@@ -18,4 +18,7 @@ public class MyArrayList{
         arr[size++] = element;
     }
 
+    private void InBuff(){
+        Object[] arrNew = new Object[arr.length*2];
+    }
 }
