@@ -1,8 +1,9 @@
 package com.MyList;
 
-import java.util.*;
+import java.util.List;
+import java.util.Scanner;
 
-public class MyArrayList<E> implements List<E> {
+public class MyArrayList{
     private Object[] arr;
     int size;
 
@@ -62,18 +63,18 @@ public class MyArrayList<E> implements List<E> {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         MyArrayList Array = new MyArrayList();
-        Array.add("Test");
-        Array.add(6);
-        Array.add(8);
-        Array.add(11);
-        Array.add(15);
-        Array.add(scanner.nextInt());
-        System.out.println(Array.get(0));
-        System.out.println(Array.size());
-        System.out.println(Array.get(3));
-        Array.remove(3);
-        System.out.println(Array.get(3));
+        MyArrayList.add(7);
+        MyArrayList.add(6);
+        MyArrayList.add(8);
+        MyArrayList.add(11);
+        MyArrayList.add(15);
+        MyArrayList.add(scan.nextInt());
+        System.out.println(MyArrayList.get(0));
+        System.out.println(MyArrayList.size());
+        System.out.println(MyArrayList.get(3));
+        MyArrayList.remove(3);
+        System.out.println(MyArrayList.get(3));
     }
 }
