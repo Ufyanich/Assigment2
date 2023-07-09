@@ -1,11 +1,17 @@
 package com.MyList;
 
-public class MyLinkedList<E> {
+public class MyLinkedList<E>{
     private static class Node<E>
     {
         E element;
         Node next;
         Node previous;
+
+        public Node(E element){
+            this.element = element;
+            this.next = null;
+            this.previous = null;
+        }
 
     }
     private Node<E> head;
@@ -13,7 +19,7 @@ public class MyLinkedList<E> {
     int size = 0;
 
     public void add(E element){
-        Node MyList = new Node();
+        Node<E> MyList = Node();
         MyList.element = element;
         MyList.next = null;
 
@@ -65,8 +71,6 @@ public class MyLinkedList<E> {
             }
             return MyListT.element;
         }
-
-
     }
 
     public int size(){
