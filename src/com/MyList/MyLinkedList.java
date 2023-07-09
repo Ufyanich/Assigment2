@@ -25,7 +25,11 @@ public class MyLinkedList<E> {
             {
                 NewList = NewList.next;
             }
+            NewList.next = MyList;
         }
+    }
+
+    public void get(int index){
 
     }
 
