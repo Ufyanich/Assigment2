@@ -114,6 +114,15 @@ public class MyLinkedList<E>{
 
         MyList.add(1);
         MyList.add(2);
+        MyList.add(3);
 
+        System.out.println("get 2nd " + MyList.get(1));
+        System.out.println("remove element " + MyList.get(0));
+
+        System.out.println("size of element before" + MyList.size);
+
+        MyList.remove(0);
+
+        System.out.println("size of element now" + MyList.size);
     }
 }
