@@ -1,6 +1,6 @@
 package com.MyList;
 
-public class MyLinkedList<E>{
+public class MyLinkedList<T> implements MyList<T>{
     private static class Node<E>
     {
         E element;
