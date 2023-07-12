@@ -1,25 +1,25 @@
 package com.MyList;
 
 public class MyLinkedList<T> implements MyList{
-    private static class Node<E>
+    private static class Node<T>
     {
-        E element;
-        Node<E> next;
-        Node<E> previous;
+        T element;
+        Node<T> next;
+        Node<T> previous;
 
-        public Node(E element){
+        public Node(T element){
             this.element = element;
             this.next = null;
             this.previous = null;
         }
 
     }
-    private Node<E> head;
-    private Node<E> tail;
+    private Node<T> head;
+    private Node<T> tail;
     int size = 0;
 
-    public void add(E element){
-        Node<E> MyList = null;
+    public void add(Object element){
+        Node<T> MyList = null;
         MyList.element = element;
         MyList.next = null;
 
@@ -36,7 +36,7 @@ public class MyLinkedList<T> implements MyList{
         }
     }
 
-    public E get(int index){
+    public T get(int index){
         if ( index < 0 || index >= size)
         {
             throw new IndexOutOfBoundsException(); //check for valid value
@@ -52,7 +52,7 @@ public class MyLinkedList<T> implements MyList{
         }
         if (index <= size /2)
         {
-            Node<E> MyListT;
+            Node<T> MyListT;
             MyListT = head;
 
             for (int i = 0; i < index; i++ )
@@ -62,7 +62,7 @@ public class MyLinkedList<T> implements MyList{
 
             return MyListT.element;
         } else {
-            Node<E> MyListT;
+            Node<T> MyListT;
             MyListT = tail;
 
             for (int i = size-1; i > index; i--)
@@ -77,9 +77,9 @@ public class MyLinkedList<T> implements MyList{
         return size;
     }
 
-    public E remove(int index)
+    public T remove(int index)
     {
-        Node<E> TestRemove = null;
+        Node<T> TestRemove = null;
 
         if (index == 0){
             TestRemove = head;
@@ -89,8 +89,8 @@ public class MyLinkedList<T> implements MyList{
             tail = tail.previous;
         } else {
             TestRemove = getNode(index);
-            Node<E> prevNode = TestRemove.previous;
-            Node<E> nextNode = TestRemove.next;
+            Node<T> prevNode = TestRemove.previous;
+            Node<T> nextNode = TestRemove.next;
             prevNode.next = nextNode;
             nextNode.previous = prevNode;
         }
@@ -99,8 +99,8 @@ public class MyLinkedList<T> implements MyList{
         return TestRemove.element;
     }
 
-    private Node<E> getNode(int index){
-        Node<E> thisNode = head;
+    private Node<T> getNode(int index){
+        Node<T> thisNode = head;
         for (int i = 0; i < index; i++)
         {
             thisNode = thisNode.next;
