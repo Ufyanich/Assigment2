@@ -1,6 +1,8 @@
 package com.MyList;
 
-public class MyList <T>{
+
+
+public interface MyList<T> {
     int size();
     boolean contains(Object o);
     void add(T item);
@@ -13,3 +15,5 @@ public class MyList <T>{
     int lastIndexOf(Object o);
     void sort();
 }
+
+

@@ -2,16 +2,38 @@ package com.MyList;
 
 import java.util.Scanner;
 
-public class MyArrayList<E>{
+public class MyArrayList<T> implements MyList{
     private Object[] arr;
     int size;
 
-    MyArrayList(){
-        this.arr = new Object[2];
+    public MyArrayList(){
+        this.arr = (Object[]) new Object[5];
         this.size = 0;
     }
 
-    public void add(E element){
+    public int size(){
+
+        return size;
+    }
+
+    public boolean contains(Object o){
+        int i = size;
+
+        while (o != arr[i])
+        {
+            if(i <= 0)
+            {i--;}
+            else if (i == 0)
+            {
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+
+    public void add(Object element){
         if(size == arr.length)
         {
             InBuff();
@@ -21,9 +43,9 @@ public class MyArrayList<E>{
     }
 
     private void InBuff(){
-        Object[] arrNew = new Object[arr.length*2];
+        Object[] arrNew = (Object[]) new Object[arr.length*2];
 
-        for (int i = 0; i < arr.length; i++)
+        for (int i = 0; i < size; i++)
         {
             arrNew[i] = arr[i];
         }
@@ -31,46 +53,59 @@ public class MyArrayList<E>{
         arr = arrNew;
     }
 
+    public void add(Object element, int index)
+        {
+            checkInd(index);
+            if(size== arr.length){
+                InBuff();
+            }
+            for (int i = size - 1; i> index; i--)
+            {
+                arr[i] = arr[i+1];
+            }
+            arr[index] = element;
+        }
+
     public Object get(int index){
-        checkInd(index);
         return arr[index];
     }
 
 
-    public void remove(int index){
-        checkInd(index);
-        for(int i=index+1; i<size; i++){
-            arr[i-1]= arr[i];
+    public boolean remove(Object element){
+        int index = 0;
+        boolean found = false;
+        for (int i = 0; i < size; i++)
+        {
+            if(arr[i] == element){
+            index = i;
+            found = true;}
         }
-        size-- ;
+
+        if(found){
+            remove(index);
+        }
+        return found;
+    }
+
+    public Object remove(int index){
+        Object temp = arr[index];
+        for(int i = index - 1; i < size; i++)
+        {
+            arr[i-1] = arr[i];
+        }
+        size--;
+        return temp;
     }
 
     private void checkInd(int index) {
-        if (index < 0 || index>size)
+        if (index < 0 && index>=size)
         {
-            throw new IndexOutOfBoundsException("No index");
+            System.out.println("No index");
         }
     }
 
-    public int size(){
-        return size;
-    }
-
     public void clear(){
-        this.arr = new Object[2];
+        this.arr = (T[]) new Object[5];
         this.size = 0;
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        MyArrayList MyList = new MyArrayList();
-        MyList.add("7");
-        MyList.add(5);
-        MyList.add(scan.nextInt(1));
-        System.out.println(MyList.get(0));
-        System.out.println(MyList.size());
-        System.out.println(MyList.get(3));
-        MyList.remove(3);
-        System.out.println(MyList.get(3));
     }
 }
