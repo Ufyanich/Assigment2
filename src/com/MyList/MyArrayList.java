@@ -1,5 +1,6 @@
 package com.MyList;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MyArrayList<T> implements MyList{
@@ -107,5 +108,8 @@ public class MyArrayList<T> implements MyList{
     public void clear(){
         this.arr = (T[]) new Object[5];
         this.size = 0;
+    }
+    public String getAllElements(){
+        return Arrays.toString(arr);
     }
 }
