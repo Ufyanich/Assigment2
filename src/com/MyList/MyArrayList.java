@@ -1,19 +1,18 @@
 package com.MyList;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
+import java.util.concurrent.LinkedBlockingDeque;
 
-public class MyArrayList<T> implements MyList{
-    private Object[] arr;
+public class MyArrayList<T> implements MyList<T>{
+    private T[] arr;
     int size;
 
     public MyArrayList(){
-        this.arr = (Object[]) new Object[5];
+        this.arr = (T[]) new Object[5];
         this.size = 0;
     }
 
     public int size(){
-
         return size;
     }
 
@@ -23,7 +22,9 @@ public class MyArrayList<T> implements MyList{
         while (o != arr[i])
         {
             if(i <= 0)
-            {i--;}
+            {
+                i--;
+            }
             else if (i == 0)
             {
                 return false;
@@ -34,7 +35,7 @@ public class MyArrayList<T> implements MyList{
         return true;
     }
 
-    public void add(Object element){
+    public void add(T element){
         if(size == arr.length)
         {
             InBuff();
@@ -44,7 +45,7 @@ public class MyArrayList<T> implements MyList{
     }
 
     private void InBuff(){
-        Object[] arrNew = (Object[]) new Object[arr.length*2];
+        T[] arrNew = (T[]) new Object[arr.length*2];
 
         for (int i = 0; i < size; i++)
         {
@@ -54,7 +55,7 @@ public class MyArrayList<T> implements MyList{
         arr = arrNew;
     }
 
-    public void add(Object element, int index)
+    public void add(T element, int index)
         {
             checkInd(index);
             if(size== arr.length){
@@ -67,7 +68,7 @@ public class MyArrayList<T> implements MyList{
             arr[index] = element;
         }
 
-    public Object get(int index){
+    public T get(int index){
         return arr[index];
     }
 
@@ -88,8 +89,8 @@ public class MyArrayList<T> implements MyList{
         return found;
     }
 
-    public Object remove(int index){
-        Object temp = arr[index];
+    public T remove(int index){
+        T temp = arr[index];
         for(int i = index - 1; i < size; i++)
         {
             arr[i-1] = arr[i];
@@ -110,6 +111,29 @@ public class MyArrayList<T> implements MyList{
         this.size = 0;
     }
     public String getAllElements(){
+
         return Arrays.toString(arr);
     }
+
+    /*public boolean indexOf(Object o){
+
+    }
+
+    public int indexOf(Object o) {
+        int a;
+        int i = arr.length - 1;
+
+        while(o != arr[i])
+        {
+            if(o == arr[i])
+            {
+                return a = i;
+            }
+
+            else {
+                i--;
+            }
+        }
+
+    }*/
 }

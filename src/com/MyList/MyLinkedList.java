@@ -1,6 +1,13 @@
 package com.MyList;
 
-public class MyLinkedList<T> implements MyList{
+import java.util.*;
+
+public class MyLinkedList<T> implements MyList<T>{
+
+    private Node<T> head;
+    private Node<T> tail;
+    int size = 0;
+
     private static class Node<T>
     {
         T element;
@@ -14,18 +21,16 @@ public class MyLinkedList<T> implements MyList{
         }
 
     }
-    private Node<T> head;
-    private Node<T> tail;
-    int size = 0;
 
-    public void add(Object element){
+
+    public void add(T element){
         Node<T> MyList = null;
         MyList.element = element;
         MyList.next = null;
 
-        if(head == null) //check for null
+        if(this.head == null) //check for null
         {
-            head = MyList;
+            this.head = new Node(element);
         } else {
             Node NewList = head;
             while (NewList.next != null) // jump to last node
@@ -34,6 +39,16 @@ public class MyLinkedList<T> implements MyList{
             }
             NewList.next = MyList;
         }
+    }
+
+    @Override
+    public void add(T element, int index) {
+
+    }
+
+    @Override
+    public boolean remove(T item) {
+        return false;
     }
 
     public T get(int index){
@@ -73,8 +88,18 @@ public class MyLinkedList<T> implements MyList{
         }
     }
 
+    @Override
+    public String getAllElements() {
+        return null;
+    }
+
     public int size(){
         return size;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
     }
 
     public T remove(int index)
@@ -97,6 +122,11 @@ public class MyLinkedList<T> implements MyList{
 
         size--;
         return TestRemove.element;
+    }
+
+    @Override
+    public void clear() {
+
     }
 
     private Node<T> getNode(int index){
